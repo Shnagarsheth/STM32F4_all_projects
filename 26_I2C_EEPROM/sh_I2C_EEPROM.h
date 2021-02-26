@@ -7,9 +7,7 @@ and page by page write/read.
 
 References: (1) https://www.st.com/resource/en/datasheet/m24c16-f.pdf
 			(2) https://www.jameco.com/Jameco/Products/ProdDS/697901-DS01.pdf  (detailed datasheet)
-			(3)  	
-
-
+			(3) Youtube Channel by "Mohammad Yaqoob" for some greater start on STM32. 
 */
 
 #include "stm32f4xx_hal.h"
