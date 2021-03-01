@@ -1,0 +1,5 @@
+{
+    "files.associations": {
+        "sh_i2c_eeprom.h": "c"
+    }
+}
