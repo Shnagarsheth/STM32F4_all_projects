@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"name": "1_Blink_LED",
+			"path": "..\\..\\ESP32_all_learning_projects\\1_Blink_LED"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"sh_i2c_eeprom.h": "c"
+		}
+	}
+}
