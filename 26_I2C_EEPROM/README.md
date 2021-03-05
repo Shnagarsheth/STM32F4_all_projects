@@ -21,7 +21,7 @@ ___
 ---
 **References:**  
 
-[1] https://www.st.com/resource/en/datasheet/m24c16-f.pdf  
-[2] https://www.jameco.com/Jameco/Products/ProdDS/697901-DS01.pdf  (detailed datasheet)  
-[3] Youtube Channel by "Mohammad Yaqoob" for some greater start on STM32.   
-[4] HAL libraries of STMicroeletronics.  
+1. [DATASHEET](https://www.st.com/resource/en/datasheet/m24c16-f.pdf)  
+2. [Detailed Datasheet](https://www.jameco.com/Jameco/Products/ProdDS/697901-DS01.pdf)  
+3. Youtube Channel by "Mohammad Yaqoob" for some greater start on STM32.   
+4. HAL libraries of STMicroeletronics.  
