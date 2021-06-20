@@ -14,4 +14,4 @@ Do the follwing setting in CubeMX to get started:
     * Select **MDK-ARM** from *Code Generator* &#x2192; *ToolChain IDE.*
     * Choose your folder and click on **Generate Code**
  
-Vola you are ready to code 😀 in Keil $/mu$ Vision IDE. Follow the main.c 
+Vola you are ready to code 😀 in Keil μ-Vision IDE. Follow the main.c 
