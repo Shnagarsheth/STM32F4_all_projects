@@ -74,7 +74,10 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-  uint32_t T= 1000;
+
+    /*******Declaring 1 second time delay******/
+    uint32_t T= 1000;
+
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -98,11 +101,12 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 
-		/***
+	  /********************************************/
      * Register Based ON/OFF of the LEDs
      * ODR - Output Data Register
      * GPIO_PIN 12, 13, 14, 15 are on board LEDs of STM32F407 Discovery Kit.
-    */
+    /******************************************/
+    
 		GPIOD->ODR ^= GPIO_PIN_12;
 		HAL_Delay(T);
 		GPIOD->ODR ^= GPIO_PIN_13;
