@@ -14,9 +14,9 @@ Do the follwing setting in CubeMX to get started:
     * Select **MDK-ARM** from *Code Generator* &#x2192; *ToolChain IDE.*
     * Choose your folder and click on **Generate Code**
 
-**Specific steps:** 
-3. Configure the pinouts according to your requirement.
-4. **For this code configure PA0 as ADC1_IN0.**
-5. Attach a POT to vary the input to ADC1 of STM32 board. 
+**Specific steps:**   
+1.  Configure the pinouts according to your requirement.  
+2.  **For this code configure PA0 as ADC1_IN0.**  
+3.  Attach a POT to vary the input to ADC1 of STM32 board. 
 
 Vola you are ready to code 😀 in Keil μ-Vision IDE. Follow the main.c 
