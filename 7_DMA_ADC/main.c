@@ -42,19 +42,23 @@
 
 /* Private variables ---------------------------------------------------------*/
 ADC_HandleTypeDef hadc1;
+DMA_HandleTypeDef hdma_adc1;
 
 TIM_HandleTypeDef htim7;
 
 /* USER CODE BEGIN PV */
 
 //DEFINE A VARIABLE FOR GETTING VALUES FROM ADC DR
-uint16_t AD1=0;
-extern uint8_t timerFlag;
+
+uint16_t AD1 =0; //VARIABLE FOR GETTING VALUES FROM ADC DR
+extern uint8_t EV;
+uint16_t DMA_buffer[8];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
+static void MX_DMA_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_TIM7_Init(void);
 /* USER CODE BEGIN PFP */
@@ -94,14 +98,18 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_ADC1_Init();
   MX_TIM7_Init();
   /* USER CODE BEGIN 2 */
 	
 	//NEED TO START THE TIMER AS WELL AS ADC
-	HAL_TIM_Base_Start_IT(&htim7);
-    HAL_ADC_Start(&hadc1);
+	if(HAL_ADC_Start_DMA(&hadc1,(uint32_t *) DMA_buffer, 8) != HAL_OK)
+	  {
+	    Error_Handler();
+    }
 
+  HAL_TIM_Base_Start_IT(&htim7);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -111,16 +119,8 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-		
-		if (timerFlag ==1)
-		  {
-			  timerFlag=0;
-        GPIOD->ODR ^=GPIO_PIN_13;
-        HAL_ADC_Start(&hadc1);
-        HAL_ADC_PollForConversion(&hadc1,100);
-        AD1=ADC1->DR;			
-        HAL_ADC_Stop(&hadc1);
-		  }
+			
+			
   }
   /* USER CODE END 3 */
 }
@@ -252,6 +252,22 @@ static void MX_TIM7_Init(void)
   /* USER CODE BEGIN TIM7_Init 2 */
 
   /* USER CODE END TIM7_Init 2 */
+
+}
+
+/** 
+  * Enable DMA controller clock
+  */
+static void MX_DMA_Init(void) 
+{
+
+  /* DMA controller clock enable */
+  __HAL_RCC_DMA2_CLK_ENABLE();
+
+  /* DMA interrupt init */
+  /* DMA2_Stream0_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA2_Stream0_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA2_Stream0_IRQn);
 
 }
 
